@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Webpage</title>
+    <style>
+        /* Base styles */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        header {
+            background-color: white;
+            color: #333;
+            padding: 20px;
+            text-align: center;
+        }
+
+        nav {
+            position: sticky;
+            top: 0;
+            background-color: #333;
+            padding: 10px;
+            height: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+
+        }
+
+        nav ul {
+
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+
+        }
+
+        nav li {
+            margin: 0 10px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: white;
+            padding: 5px;
+            transition: background-color 0.3s ease;
+
+        }
+
+        nav a:hover {
+            background-color: #4fad55;
+            color: #fff;
+        }
+
+        main {
+            padding: 20px;
+            height: 65vh;
+            text-align: center;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        /* Media queries for responsiveness */
+        @media (max-width: 768px) {
+            nav {
+                display: block;
+            }
+
+            nav ul {
+                justify-content: flex-start;
+            }
+
+            nav li {
+                margin: 10px 0;
+            }
+        }
+
+        /* CSS animation effect */
+        @keyframes slideIn {
+            0% {
+                transform: translateX(-100%);
+            }
+
+            100% {
+                transform: translateX(0);
+            }
+        }
+
+        /* Apply animation to nav element */
+        nav {
+            animation: slideIn 1s ease;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Simple Webpage</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <h2>Welcome to our webpage!</h2>
+        <p>This is the main content area.</p>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Simple Webpage. All rights reserved.</p>
+    </footer>
+
+</body>
+
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #dropdown-menu {
+            display: none;
+        }
+
+        #dropdown-menu[aria-expanded="true"] {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="dropdown-button" aria-haspopup="true" aria-expanded="false">Dropdown</button>
+    <ul id="dropdown-menu" role="menu" aria-labelledby="dropdown-button">
+        <li role="menuitem">Option 1</li>
+        <li role="menuitem">Option 2</li>
+        <li role="menuitem">Option 3</li>
+    </ul>
+
+
+
+
+    <script>
+        const dropdownButton = document.getElementById('dropdown-button');
+        const dropdownMenu = document.getElementById('dropdown-menu');
+        let focusedIndex = -1;
+
+        dropdownButton.addEventListener('click', function () {
+            const expanded = dropdownButton.getAttribute('aria-expanded') === 'true';
+            dropdownButton.setAttribute('aria-expanded', !expanded);
+            dropdownMenu.style.display = expanded ? 'none' : 'block';
+
+            if (!expanded) {
+                dropdownMenu.querySelectorAll('li')[0].focus();
+                focusedIndex = 0;
+            }
+        });
+
+        dropdownMenu.addEventListener('keydown', function (event) {
+            const key = event.key;
+            const options = dropdownMenu.querySelectorAll('li');
+            const totalOptions = options.length;
+
+            if (key === 'ArrowUp') {
+                event.preventDefault();
+                focusedIndex = (focusedIndex - 1 + totalOptions) % totalOptions;
+                options[focusedIndex].focus();
+            } else if (key === 'ArrowDown') {
+                event.preventDefault();
+                focusedIndex = (focusedIndex + 1) % totalOptions;
+                options[focusedIndex].focus();
+            } else if (key === 'Escape') {
+                dropdownButton.focus();
+                dropdownButton.setAttribute('aria-expanded', 'false');
+                dropdownMenu.style.display = 'none';
+            }
+        });
+
+
+
+
+    </script>
+
+</body>
+
+</html>

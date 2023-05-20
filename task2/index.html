@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        form {
+            width: 400px;
+            border: 1px solid rgb(230, 230, 230);
+            margin: 3% auto;
+            padding: 3%;
+            background: white;
+        }
+
+        /* form css */
+        input {
+            display: block;
+            margin: 15px 0px;
+            font-size: 20px;
+            padding: 2%;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- form -->
+    <form id="form1" onsubmit="useRegister(event)">
+        <div>
+            <label>Name :</label>
+            <input type="text" name="Name" placeholder="Full Name" required />
+        </div>
+        <div>
+            <label>Email :</label>
+            <input type="email" id="form" name="email" placeholder="Enter your email" required />
+        </div>
+        <div>
+            <label>Password</label>
+            <input type="password" name="Password" placeholder="Enter your password" required />
+        </div>
+        <div>
+            <input type="submit" value="Register" />
+        </div>
+
+    </form>
+
+</body>
+
+</html>
+<script src="./index.js">
+
+</script>

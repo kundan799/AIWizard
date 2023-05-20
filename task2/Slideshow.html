@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Slideshow</title>
+    <style>
+        h1{
+            text-align: center;
+            font-size: 30px;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+        .slideshow-container {
+            max-width: 60%;
+            position: relative;
+            margin: auto;
+            border: 5px solid black;
+        }
+
+        .slide {
+            display: none;
+        }
+
+        .slide img {
+            width: 100%;
+            height: 400px;
+            margin: auto;
+            opacity: 1;
+        }
+
+        
+        .slide.fade {
+            animation: fade 1s linear infinite;
+        }
+
+       
+    </style>
+</head>
+
+<body>
+    <h1>An Image Carousel</h1>
+    <div class="slideshow-container">
+        <div class="slide">
+            <img src="https://images.unsplash.com/photo-1683544716690-6cce82d85e4b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDIzfDZzTVZqVExTa2VRfHxlbnwwfHx8fHw%3D&auto=format&fit=crop&w=500&q=60"   alt="Image 1">
+        </div>
+        <div class="slide">
+            <img src="https://images.unsplash.com/photo-1683733150127-4890f25229aa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDEzfDZzTVZqVExTa2VRfHxlbnwwfHx8fHw%3D&auto=format&fit=crop&w=500&q=60"   alt="Image 2">
+        </div>
+        <div class="slide">
+            <img src="https://images.unsplash.com/photo-1683330480993-034d1e9432c9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDEyfDZzTVZqVExTa2VRfHxlbnwwfHx8fHw%3D&auto=format&fit=crop&w=500&q=60"   alt="Image 3">
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var slides = document.querySelectorAll(".slide");
+            var currentIndex = 0;
+
+            function showSlide(index) {
+                slides.forEach(function (slide) {
+                    slide.style.display = "none";
+                });
+
+                slides[index].style.display = "block";
+            }
+
+            function nextSlide() {
+                currentIndex = (currentIndex + 1) % slides.length;
+                showSlide(currentIndex);
+            }
+
+            // Change slide every 3 seconds
+            setInterval(nextSlide, 3000);
+        });
+
+    </script>
+</body>
+
+</html>
